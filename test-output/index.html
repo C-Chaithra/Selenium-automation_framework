@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-LoginSuite" class="navigator-link ">
-                    <span>C:\Users\chaic\eclipse-workspace\selenium-automation\testng.xml</span>
+                    <span>D:\QA\Eclipse-workspace\Selenium-automation_framework\testng_new.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -150,7 +150,7 @@
                   <span class="method-name">testValidLogin</span>
                   <span class="parameters">(user2,pass2)</span>
                   <div class="stack-trace">java.lang.AssertionError: expected [Just a moment...] but found [nopCommerce demo store. Login]
-	at test.LoginTest.testValidLogin(LoginTest.java:70)
+	at test.LoginTest.testValidLogin(LoginTest.java:69)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 ... Removed 31 stack frames
 </div> <!-- stack-trace -->
@@ -163,7 +163,7 @@
                   <span class="method-name">testValidLogin</span>
                   <span class="parameters">(user1,pass1)</span>
                   <div class="stack-trace">java.lang.AssertionError: expected [Just a moment...] but found [nopCommerce demo store. Login]
-	at test.LoginTest.testValidLogin(LoginTest.java:70)
+	at test.LoginTest.testValidLogin(LoginTest.java:69)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 ... Removed 31 stack frames
 </div> <!-- stack-trace -->
@@ -190,7 +190,7 @@
         </div> <!-- panel LoginSuite -->
         <div panel-name="test-xml-LoginSuite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\chaic\eclipse-workspace\selenium-automation\testng.xml</span>
+            <span class="header-content">D:\QA\Eclipse-workspace\Selenium-automation_framework\testng_new.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -198,6 +198,8 @@
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite name=&quot;LoginSuite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;TestLogin&quot;&gt;
+    &lt;parameter name=&quot;password&quot; value=&quot;Pass1&quot;/&gt;
+    &lt;parameter name=&quot;username&quot; value=&quot;Username1&quot;/&gt;
     &lt;classes&gt;
       &lt;class name=&quot;test.LoginTest&quot;/&gt;
     &lt;/classes&gt;
@@ -243,15 +245,15 @@ data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'testValidLogin')
 data.setCell(0, 2, 'test.LoginTest')
-data.setCell(0, 3, 876);
+data.setCell(0, 3, 1209);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'testValidLogin')
 data.setCell(1, 2, 'test.LoginTest')
-data.setCell(1, 3, 751);
+data.setCell(1, 3, 741);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'testValidLogin')
 data.setCell(2, 2, 'test.LoginTest')
-data.setCell(2, 3, 707);
+data.setCell(2, 3, 651);
 window.suiteTableData['LoginSuite']= { tableData: data, tableDiv: 'times-div-LoginSuite'}
 return data;
 }
@@ -289,47 +291,47 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">1143 ms</span>
+                <span class="method-start">1018 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">testValidLogin(user1, pass1)</span>
-                <span class="method-start">6121 ms</span>
+                <span class="method-start">4408 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown([TestResult name=testValidLogin status=FAILURE method=LoginTest.testValidLogin(java.lang.String,java...)</span>
-                <span class="method-start">6877 ms</span>
+                <span class="method-start">5153 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">7288 ms</span>
+                <span class="method-start">5530 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">testValidLogin(user2, pass2)</span>
-                <span class="method-start">9738 ms</span>
+                <span class="method-start">8696 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown([TestResult name=testValidLogin status=FAILURE method=LoginTest.testValidLogin(java.lang.String,java...)</span>
-                <span class="method-start">10446 ms</span>
+                <span class="method-start">9349 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">10830 ms</span>
+                <span class="method-start">9701 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testValidLogin(admin@yourstore.com, admin)</span>
-                <span class="method-start">13069 ms</span>
+                <span class="method-start">11883 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown([TestResult name=testValidLogin status=SUCCESS method=LoginTest.testValidLogin(java.lang.String,java...)</span>
-                <span class="method-start">13947 ms</span>
+                <span class="method-start">13094 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-suite after">
                 <span class="method-name">teardownReport</span>
-                <span class="method-start">14292 ms</span>
+                <span class="method-start">13331 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

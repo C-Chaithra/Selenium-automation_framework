@@ -2,13 +2,15 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [LoginSuite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="TestLogin(failed)">
+    <parameter name="password" value="Pass1"/>
+    <parameter name="username" value="Username1"/>
     <classes>
       <class name="test.LoginTest">
         <methods>
           <include name="setupReport"/>
           <include name="tearDown"/>
-          <include name="setUp"/>
           <include name="teardownReport"/>
+          <include name="setUp"/>
           <include name="testValidLogin" invocation-numbers="0 1"/>
         </methods>
       </class> <!-- test.LoginTest -->
