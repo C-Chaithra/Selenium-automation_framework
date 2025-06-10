@@ -9,7 +9,7 @@ import utils.Log;
 
 public class LoginPage {
 
-	protected WebDriver driver;
+	protected  WebDriver driver;
 
 	@FindBy(id = "Email")
 	WebElement usernameTextbox;
