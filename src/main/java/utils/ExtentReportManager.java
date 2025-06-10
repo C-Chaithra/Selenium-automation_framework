@@ -27,7 +27,7 @@ public class ExtentReportManager {
 			reportPath = "reports/ExtentReport_"+timestamp+".html";
 			ExtentSparkReporter reporter = new ExtentSparkReporter(reportPath);
 
-			reporter.config().setDocumentTitle("Automation Test Report");
+			reporter.config().setDocumentTitle("Selenium Automation Test Report");
 			reporter.config().setReportName("Test Execution Report");
 
 			extent = new ExtentReports();

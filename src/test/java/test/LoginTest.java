@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import base.baseTest;
@@ -41,9 +42,9 @@ public class LoginTest extends baseTest {
 		};
 	}
 
-	@Test(dataProvider = "LoginData")
-	//@Test
-	//@Parameters({"username" ,"password"})
+	//@Test(dataProvider = "LoginData")
+	@Test
+	@Parameters({"username" ,"password"})
 	public void testValidLogin(String username, String password) {
 
 		Log.info("Starting login test...");
@@ -66,7 +67,7 @@ public class LoginTest extends baseTest {
 		Log.info("Verifying page title");
 		test.info("Verifying page title");
 		System.out.println("Title of the page is : " + driver.getTitle());
-		Assert.assertEquals(driver.getTitle(), "Just a moment...");
+		Assert.assertEquals(driver.getTitle(),"Just a moment...");
 		test.pass("Login Successful");
 		
 		
@@ -88,10 +89,10 @@ public class LoginTest extends baseTest {
 		test.info("Clicking on Login button");
 		loginPage.clickLogin();
 
-		System.out.println("Title of the page is : " + driver.getTitle());
+		System.out.println("Title of the page is : " + driver.toString());
 		Log.info("Verifying page title");
 		test.info("Verifying page title");
-		Assert.assertEquals(driver.getTitle(), "Just a moment...123");
+		Assert.assertEquals(driver.getTitle(),"Just a moment...123");
 
 		test.fail("Login UnSuccessful");
 

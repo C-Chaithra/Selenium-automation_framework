@@ -4,7 +4,6 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.ITestResult;
@@ -21,7 +20,8 @@ import utils.ExtentReportManager;
 import utils.Log;
 
 public class baseTest {
-	protected WebDriver driver;
+	   // Thread-safe WebDriver using ThreadLocal
+    protected static WebDriver driver ;
 	protected static ExtentReports extent;
 	protected ExtentTest test;
 
