@@ -6,6 +6,7 @@ import java.util.Date;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -20,10 +21,12 @@ import utils.ExtentReportManager;
 import utils.Log;
 
 public class baseTest {
-	   // Thread-safe WebDriver using ThreadLocal
-    protected static WebDriver driver ;
+	// Thread-safe WebDriver using ThreadLocal
+	protected static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+	// protected static WebDriver driver ;
 	protected static ExtentReports extent;
 	protected ExtentTest test;
+	protected ITestContext context;
 
 	@BeforeSuite
 	public void setupReport() {
@@ -32,38 +35,41 @@ public class baseTest {
 
 	@AfterSuite
 	public void teardownReport() {
-		extent.flush();
+		ExtentReportManager.flushReport();
 		// String reportPath = ExtentReportManager.reportPath;
 		// EmailUtils.sendTestReport(reportPath);
 	}
 
 	@BeforeMethod
-	public void setUp() {
+	public void setUp(ITestContext context) {
+		WebDriver webDriver;
 
+		this.context = context;
 		Log.info("Starting WebDriver...");
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
+		webDriver = new ChromeDriver();
+		driver.set(webDriver);
+		driver.get().manage().window().maximize();
+
 		Log.info("Navigating to URL...");
-		driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
-		driver.get("https://admin-demo.nopcommerce.com/login");
+		driver.get().manage().timeouts().implicitlyWait(Duration.ofMillis(500));
+		driver.get().get("https://admin-demo.nopcommerce.com/login");
 	}
 
 	@AfterMethod
 	public void tearDown(ITestResult result) {
 
 		if (result.getStatus() == ITestResult.FAILURE) {
-			
-			String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
-			String screenshotName = "LoginFailure_"+timestamp+".html";
-			String screenshotPath = ExtentReportManager.captureScreenshot(driver, screenshotName);
+
+			String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm").format(new Date());
+			String screenshotName = "LoginFailure_" + timestamp + ".html";
+			String screenshotPath = ExtentReportManager.captureScreenshot(driver.get(), screenshotName);
 			test.fail("Test Failed.. Check Screenshot",
 					MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
 		}
-		if (driver != null) {
+		if (driver.get() != null) {
 			Log.info("Closing Browser...");
-			driver.quit();
+			driver.get().quit();
 		}
 	}
-
 
 }

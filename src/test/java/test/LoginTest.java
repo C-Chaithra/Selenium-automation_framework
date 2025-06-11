@@ -3,6 +3,7 @@ package test;
 import java.io.IOException;
 
 import org.testng.Assert;
+import org.testng.ITestContext;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -14,6 +15,7 @@ import utils.ExtentReportManager;
 import utils.Log;
 
 public class LoginTest extends baseTest {
+	
 
 	@DataProvider(name="LoginData")
 	public Object[][] getLoginData() throws IOException{
@@ -47,11 +49,12 @@ public class LoginTest extends baseTest {
 	@Parameters({"username" ,"password"})
 	public void testValidLogin(String username, String password) {
 
+		String testName = "Login Test - " + username;
+        test = ExtentReportManager.createTest(testName, context);
 		Log.info("Starting login test...");
-		test = ExtentReportManager.createTest("Login Test - "+username);
-
+		
 		test.info("Navigating to URL");
-		LoginPage loginPage = new LoginPage(driver);
+		LoginPage loginPage = new LoginPage(driver.get());
 
 		Log.info("Adding credentials");
 		test.info("Adding Credentails");
@@ -66,8 +69,8 @@ public class LoginTest extends baseTest {
 
 		Log.info("Verifying page title");
 		test.info("Verifying page title");
-		System.out.println("Title of the page is : " + driver.getTitle());
-		Assert.assertEquals(driver.getTitle(),"Just a moment...");
+		System.out.println("Title of the page is : " + driver.get().getTitle());
+		Assert.assertEquals(driver.get().getTitle(),"Just a moment...");
 		test.pass("Login Successful");
 		
 		
@@ -77,10 +80,10 @@ public class LoginTest extends baseTest {
 	public void testLoginWithInvalidCredentials() {
 
 		Log.info("Starting login test...");
-		test = ExtentReportManager.createTest("Login Test with Invalid Credentials");
+		//test = ExtentReportManager.createTest("Login Test with Invalid Credentials");
 
 		test.info("Navigating to URL");
-		LoginPage loginPage = new LoginPage(driver);
+		LoginPage loginPage = new LoginPage(driver.get());
 
 		Log.info("Adding Invalid credentials");
 		test.info("Adding Invalid Credentails");
@@ -92,7 +95,7 @@ public class LoginTest extends baseTest {
 		System.out.println("Title of the page is : " + driver.toString());
 		Log.info("Verifying page title");
 		test.info("Verifying page title");
-		Assert.assertEquals(driver.getTitle(),"Just a moment...123");
+		Assert.assertEquals(driver.get().getTitle(),"Just a moment...123");
 
 		test.fail("Login UnSuccessful");
 
