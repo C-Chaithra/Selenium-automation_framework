@@ -26,7 +26,7 @@ public class baseTest {
 	// protected static WebDriver driver ;
 	protected static ExtentReports extent;
 	protected ExtentTest test;
-	protected ITestContext context;
+	//protected ITestContext context;
 
 	@BeforeSuite
 	public void setupReport() {
@@ -35,7 +35,8 @@ public class baseTest {
 
 	@AfterSuite
 	public void teardownReport() {
-		ExtentReportManager.flushReport();
+		//ExtentReportManager.flushReport();
+		extent.flush();
 		// String reportPath = ExtentReportManager.reportPath;
 		// EmailUtils.sendTestReport(reportPath);
 	}
@@ -44,7 +45,7 @@ public class baseTest {
 	public void setUp(ITestContext context) {
 		WebDriver webDriver;
 
-		this.context = context;
+		//this.context = context;
 		Log.info("Starting WebDriver...");
 		webDriver = new ChromeDriver();
 		driver.set(webDriver);
