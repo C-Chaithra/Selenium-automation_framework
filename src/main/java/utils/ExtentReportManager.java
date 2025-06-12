@@ -38,10 +38,11 @@ public class ExtentReportManager {
 		return extent;
 	}
 
-	public static ExtentTest createTest(String testName, ITestContext context) {
+	//public static ExtentTest createTest(String testName, ITestContext context) {
+		public static ExtentTest createTest(String testName) {
 
-		String testNgTestName = testName + " - " + context.getName();
-		test = getReportInstance().createTest(testNgTestName);
+		//String testNgTestName = testName + " - " + context.getName();
+		test = getReportInstance().createTest(testName);
 		extentTest.set(test);
 		return test;
 	}

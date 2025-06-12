@@ -3,7 +3,6 @@ package test;
 import java.io.IOException;
 
 import org.testng.Assert;
-import org.testng.ITestContext;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -46,11 +45,12 @@ public class LoginTest extends baseTest {
 
 	//@Test(dataProvider = "LoginData")
 	@Test
-	@Parameters({"username" ,"password"})
-	public void testValidLogin(String username, String password) {
+	//@Parameters({"username" ,"password"})
+	public void testValidLogin() {
 
-		String testName = "Login Test - " + username;
-        test = ExtentReportManager.createTest(testName, context);
+		String testName = "Login Test - admin@yourstore.com" ;
+        //test = ExtentReportManager.createTest(testName, context);
+        test = ExtentReportManager.createTest(testName);
 		Log.info("Starting login test...");
 		
 		test.info("Navigating to URL");
@@ -58,11 +58,11 @@ public class LoginTest extends baseTest {
 
 		Log.info("Adding credentials");
 		test.info("Adding Credentails");
-//		loginPage.enterUsername("admin@yourstore.com");
-//		loginPage.enterPassword("admin");
+		loginPage.enterUsername("admin@yourstore.com");
+		loginPage.enterPassword("admin");
 
-		loginPage.enterUsername(username);
-		loginPage.enterPassword(password);
+		//loginPage.enterUsername(username);
+		//loginPage.enterPassword(password);
 
 		test.info("Clicking on Login button");
 		loginPage.clickLogin();
